@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class DrawPanel extends JPanel {
+
     public DrawPanel() {
         this.setPreferredSize(new Dimension(800, 600));
     }

@@ -3,6 +3,7 @@ package ru.vsu.cs.kg2021.g41.bobrova_d_d.task1.objects.background;
 import java.awt.*;
 
 public class Pumpkin {
+
     public void drawPumpkin(Graphics2D g, int xPumpkin, int yPumpkin, int radiusPumpkin, int xEyes, int yEyes, int radiusEyes,
                             int xMouth, int yMouth, int width, int height, int startAngle, int arcAngle) {
 

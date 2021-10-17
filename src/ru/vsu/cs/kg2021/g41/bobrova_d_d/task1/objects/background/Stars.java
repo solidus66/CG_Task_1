@@ -3,6 +3,7 @@ package ru.vsu.cs.kg2021.g41.bobrova_d_d.task1.objects.background;
 import java.awt.*;
 
 public class Stars {
+
     private static double[] x;
     private static double[] y;
 

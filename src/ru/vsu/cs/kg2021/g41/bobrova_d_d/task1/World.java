@@ -6,6 +6,7 @@ import ru.vsu.cs.kg2021.g41.bobrova_d_d.task1.objects.background.*;
 import java.awt.*;
 
 public class World {
+
     private final Ground ground;
     private final Headstone headstone;
     private final Sky sky;

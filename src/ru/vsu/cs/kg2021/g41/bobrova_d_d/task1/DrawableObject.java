@@ -3,6 +3,7 @@ package ru.vsu.cs.kg2021.g41.bobrova_d_d.task1;
 import java.awt.*;
 
 public abstract class DrawableObject {
+
     protected int x, y, width, height;
 
     public DrawableObject(int x, int y, int width, int height) {
