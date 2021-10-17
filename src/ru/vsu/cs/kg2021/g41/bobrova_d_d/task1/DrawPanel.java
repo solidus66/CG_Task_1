@@ -23,10 +23,11 @@ public class DrawPanel extends JPanel {
         stars.drawStars(gr, 10, 800, 300);
 
         Pumpkin pumpkin = new Pumpkin();
-        pumpkin.drawPumpkinShadow(gr, 410, 535, 120);
-        pumpkin.drawPumpkin(gr, 432, 400, 120, 335, 370, 15,
-                335, 370, 150, 100, 180, 180);
-
         pumpkin.drawPumpkinHaulm(gr, 390, 220, 30, 80);
+        pumpkin.drawPumpkinShadow(gr, 410, 535, 120);
+        pumpkin.drawPumpkin(gr, 432, 400, 120, 363, 420, 13,
+                392, 410, 36, 36, 180, 180);
+//        pumpkin.drawPumpkin(gr, 432, 400, 120, 363, 420, 13,
+//                354, 410, 110, 80, 180, 180);
     }
 }

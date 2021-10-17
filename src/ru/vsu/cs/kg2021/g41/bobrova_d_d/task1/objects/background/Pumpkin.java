@@ -25,9 +25,9 @@ public class Pumpkin {
 
         // физиономия тыквы
         g.setColor(Color.black);
-        g.fillOval(xEyes - radiusEyes, yEyes - radiusEyes, 3 * radiusEyes, 2 * radiusEyes);
-        g.fillOval(130 + (xEyes - radiusEyes), yEyes - radiusEyes, 3 * radiusEyes, 2 * radiusEyes);
-        g.fillArc(xMouth, yMouth, width, height, startAngle, arcAngle);
+        g.fillOval(xEyes - radiusEyes, yEyes - radiusEyes, 2 * radiusEyes, 2 * radiusEyes);
+        g.fillOval(90 + (xEyes - radiusEyes), yEyes - radiusEyes, 2 * radiusEyes, 2 * radiusEyes);
+        g.drawArc(xMouth, yMouth, width, height, startAngle, arcAngle);
     }
 
     public void drawPumpkinShadow(Graphics2D g, int x, int y, int radius) {
