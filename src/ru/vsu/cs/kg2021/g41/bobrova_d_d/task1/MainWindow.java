@@ -8,7 +8,7 @@ public class MainWindow extends JFrame {
     public MainWindow() throws HeadlessException {
         DrawPanel drawPanel = new DrawPanel();
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-
+        this.setTitle("Spooky!");
         this.add(drawPanel);
         this.pack();
         this.setLocationRelativeTo(null);
