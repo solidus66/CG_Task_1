@@ -13,7 +13,7 @@ public class MainWindow extends JFrame {
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        this.setResizable(false);
+        this.setResizable(true);
     }
 }
 

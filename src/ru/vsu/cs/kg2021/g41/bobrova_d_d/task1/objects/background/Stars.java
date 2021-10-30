@@ -4,19 +4,22 @@ import java.awt.*;
 
 public class Stars {
 
-    private static double[] x;
-    private static double[] y;
+    private final double[] x;
+    private final double[] y;
 
-    static {
+    private final int n;
+
+    public Stars(int n, double width, double height) {
+        this.n = n;
         x = new double[100];
         y = new double[100];
-        for (int i = 0; i < 100; i++) {
-            x[i] = Math.random();
-            y[i] = Math.random();
+        for (int i = 0; i < x.length; i++) {
+            x[i] = Math.random() * width;
+            y[i] = Math.random() * height;
         }
     }
 
-    public void drawStars(Graphics2D g, int n, int w, int h) {
+    public void drawStars(Graphics2D g, int w, int h) {
         g.setColor(new Color(255, 255, 255, 255));
         for (int i = 0; i < n; i++) {
             g.fillOval((int) (x[i] * w), (int) (y[i] * h), 5, 5);
