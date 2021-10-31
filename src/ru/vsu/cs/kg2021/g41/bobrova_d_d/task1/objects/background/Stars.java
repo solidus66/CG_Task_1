@@ -19,10 +19,10 @@ public class Stars {
         }
     }
 
-    public void drawStars(Graphics2D g, int w, int h) {
+    public void drawStars(Graphics2D g, int width, int height) {
         g.setColor(new Color(255, 255, 255, 255));
         for (int i = 0; i < n; i++) {
-            g.fillOval((int) (x[i] * w), (int) (y[i] * h), 5, 5);
+            g.fillOval((int) (x[i] * width), (int) (y[i] * height), 5, 5);
         }
     }
 }

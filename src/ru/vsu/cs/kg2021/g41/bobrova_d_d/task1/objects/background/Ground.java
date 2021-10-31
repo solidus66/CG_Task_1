@@ -11,7 +11,7 @@ public class Ground extends DrawableObject {
     }
 
     @Override
-    public void draw(Graphics2D g, int w, int h) {
+    public void draw(Graphics2D g, int width, int height) {
         g.setColor(new Color(56, 46, 41, 255));
         g.fillRect(x, y, this.width, this.height);
     }

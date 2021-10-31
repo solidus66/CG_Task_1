@@ -4,62 +4,69 @@ import java.awt.*;
 
 public class Pumpkin {
 
-    private final int xPumpkin;
-    private final int yPumpkin;
-    private final int radiusPumpkin;
-//    private final int xEyes;
-//    private final int yEyes;
-//    private final int radiusEyes;
-    //    private int xMouth;
-//    private int yMouth;
-//    private int width;
-//    private int height;
-//    private int startAngle;
-//    private int arcAngle;
+    private int x;
+    private int y;
+    private int ovalWidth;
+    private int ovalHeight;
+    private int xEyesLeft;
+    private int xEyesRight;
 
-    public Pumpkin(int xPumpkin, int yPumpkin, int radiusPumpkin /*, int xEyes, int yEyes, int radiusEyes int xMouth, int yMouth, int width, int height  int startAngle, int arcAngle*/) {
-        this.xPumpkin = xPumpkin;
-        this.yPumpkin = yPumpkin;
-        this.radiusPumpkin = radiusPumpkin;
-//        this.xEyes = xEyes;
-//        this.yEyes = yEyes;
-//        this.radiusEyes = radiusEyes;
-//        this.xMouth = xMouth;
-//        this.yMouth = yMouth;
-//        this.width = width;
-//        this.height = height;
-//        this.startAngle = startAngle;
-//        this.arcAngle = arcAngle;
+    private int width;
+    private int height;
+
+    private final double COF_EYES_X_LEFT = 0.1;
+    private final double COF_EYES_X_RIGHT = 0.34;
+    private final double COF_EYES_Y = 0.5;
+
+    private final double COF_OVAL_WIDTH = 0.5;
+    private final double COF_OVAL_HEIGHT = 0.9;
+
+    private int xEyes;
+    private int yEyes;
+
+    public Pumpkin(int x, int y, int width, int height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+
+        this.ovalWidth = (int) (COF_OVAL_WIDTH * width);
+        this.ovalHeight = (int) (COF_OVAL_HEIGHT * height);
+
+
+        this.xEyesLeft = x + (int) (COF_EYES_X_LEFT * width);
+        this.xEyesRight = x + (int) (COF_EYES_X_RIGHT * width);
+        this.yEyes = y + (int) (COF_EYES_Y * height);
     }
 
     public void drawPumpkin(Graphics2D g) {
-
-        // крайние части тыквы
+        // left & right ovals
         g.setColor(new Color(176, 113, 0));
-        //g.fillOval(xPumpkin - 35, yPumpkin - radiusPumpkin, 50 + radiusPumpkin, 2 * radiusPumpkin); // правая часть
-        //g.fillOval(xPumpkin - 199, yPumpkin - radiusPumpkin, 50 + radiusPumpkin, 2 * radiusPumpkin); // левая часть
-        g.fillOval((int) (xPumpkin - (xPumpkin / 14.5)), yPumpkin - radiusPumpkin, 50 + radiusPumpkin, 2 * radiusPumpkin);
-        g.fillOval((int) (xPumpkin - (xPumpkin / 2.3)), yPumpkin - radiusPumpkin, 50 + radiusPumpkin, 2 * radiusPumpkin);
+
+        g.fillOval(x - 90, y, ovalWidth, ovalHeight);
+        g.fillOval(x + 90, y, ovalWidth, ovalHeight);
 
         g.setColor(new Color(66, 41, 0));
-        //g.drawOval(xPumpkin - 35, yPumpkin - radiusPumpkin, 50 + radiusPumpkin, 2 * radiusPumpkin); // правая часть
-        //g.drawOval(xPumpkin - 199, yPumpkin - radiusPumpkin, 50 + radiusPumpkin, 2 * radiusPumpkin); // левая часть
-        g.drawOval((int) (xPumpkin - (xPumpkin / 14.5)), yPumpkin - radiusPumpkin, 50 + radiusPumpkin, 2 * radiusPumpkin);
-        g.drawOval((int) (xPumpkin - (xPumpkin / 2.3)), yPumpkin - radiusPumpkin, 50 + radiusPumpkin, 2 * radiusPumpkin);
 
-        // центральная часть тыквы
+        g.drawOval(x - 90, y, ovalWidth, ovalHeight);
+        g.drawOval(x + 90, y, ovalWidth, ovalHeight);
+
+        // central oval
         g.setColor(new Color(202, 128, 0));
-        g.fillOval(xPumpkin - radiusPumpkin, yPumpkin - radiusPumpkin, 70 + radiusPumpkin, 2 * radiusPumpkin);
+        g.fillOval(x, y, ovalWidth, ovalHeight);
 
         g.setColor(new Color(66, 41, 0));
-        g.drawOval(xPumpkin - radiusPumpkin, yPumpkin - radiusPumpkin, 70 + radiusPumpkin, 2 * radiusPumpkin);
+        g.drawOval(x, y, ovalWidth, ovalHeight);
+    }
 
-//        // физиономия тыквы
-//        g.setColor(Color.black);
-//        g.fillOval(xEyes - radiusEyes, yEyes - radiusEyes, 2 * radiusEyes, 2 * radiusEyes);
-//        g.fillOval(90 + (xEyes - radiusEyes), yEyes - radiusEyes, 2 * radiusEyes, 2 * radiusEyes);
-//        //g.drawArc(xMouth, yMouth, width, height, startAngle, arcAngle);
-//        g.drawArc(xPumpkin - 41, yPumpkin, 36, 36, 180, 180);
+    public void drawPumpkinFace(Graphics2D g) {
+        // pumpkin's physiognomy
+        g.setColor(Color.black);
+        g.fillOval(xEyesLeft, yEyes, 27, 27);
+        g.fillOval(xEyesRight, yEyes, 27, 27);
+
+        g.drawArc(((xEyesLeft + xEyesRight) / 2), yEyes + 10, 36, 36, 180, 180);
+
     }
 
     public void drawPumpkinShadow(Graphics2D g, int x, int y, int radius) {
