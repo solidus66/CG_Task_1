@@ -10,9 +10,7 @@ public class Pumpkin {
     private int ovalHeight;
     private int xEyesLeft;
     private int xEyesRight;
-
-    private int width;
-    private int height;
+    private int yEyes;
 
     private final double COF_EYES_X_LEFT = 0.1;
     private final double COF_EYES_X_RIGHT = 0.34;
@@ -21,14 +19,10 @@ public class Pumpkin {
     private final double COF_OVAL_WIDTH = 0.5;
     private final double COF_OVAL_HEIGHT = 0.9;
 
-    private int xEyes;
-    private int yEyes;
 
     public Pumpkin(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
 
         this.ovalWidth = (int) (COF_OVAL_WIDTH * width);
         this.ovalHeight = (int) (COF_OVAL_HEIGHT * height);
@@ -66,7 +60,6 @@ public class Pumpkin {
         g.fillOval(xEyesRight, yEyes, 27, 27);
 
         g.drawArc(((xEyesLeft + xEyesRight) / 2), yEyes + 10, 36, 36, 180, 180);
-
     }
 
     public void drawPumpkinShadow(Graphics2D g, int x, int y, int radius) {
